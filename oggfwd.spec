@@ -3,7 +3,7 @@ Summary:	Small utility to forward Ogg to server icecast
 Summary(pl.UTF-8):	Niewielkie narzędzie do przekazywania plików Ogg dla serwera iceacast
 Name:		oggfwd
 Version:	0.2
-Release:	0.1
+Release:	1
 License:	GPL v2
 Group:		Applications
 Source0:	http://v2v.cc/~j/oggfwd/%{name}-%{version}.tar.gz
@@ -25,7 +25,8 @@ Niewielkie narzędzie przekazywania plików Ogg do serwera iceacast.
 %setup -q
 
 %build
-%{__make}
+%{__make} \
+	CFLAGS="%{rpmcflags} -ffast-math -fsigned-char"
 
 %install
 rm -rf $RPM_BUILD_ROOT
