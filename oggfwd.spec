@@ -8,6 +8,7 @@ License:	GPL v2
 Group:		Applications
 Source0:	http://v2v.cc/~j/oggfwd/%{name}-%{version}.tar.gz
 # Source0-md5:	00969e60bec7191e55db1026a698419f
+Patch0:		%{name}-Makefile.patch
 URL:		http://v2v.cc/~j/ffmpeg2theora/oggfwd
 BuildRequires:	libogg-devel
 BuildRequires:	libshout-devel >= 2.1
@@ -23,6 +24,7 @@ Niewielkie narzędzie przekazywania plików Ogg do serwera iceacast.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %{__make} \
@@ -30,9 +32,10 @@ Niewielkie narzędzie przekazywania plików Ogg do serwera iceacast.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1}
 
-install %{name} $RPM_BUILD_ROOT%{_bindir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -41,3 +44,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README
 %attr(755,root,root) %{_bindir}/%{name}
+%{_mandir}/man1/*.gz
