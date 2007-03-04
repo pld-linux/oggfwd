@@ -1,0 +1,26 @@
+--- Makefile	2006-08-01 14:14:22.000000000 +0200
++++ Makefile-new	2007-03-04 17:47:15.000000000 +0100
+@@ -2,9 +2,9 @@
+ SRC =		oggfwd.c
+ MAN =		oggfwd.1
+ 
+-PREFIX ?=	/usr/local
++PREFIX ?=	/usr
+ BINDIR ?=	${PREFIX}/bin
+-MAN1DIR ?=	${PREFIX}/man/man1
++MAN1DIR ?=	${PREFIX}/share/man/man1
+ 
+ CC ?=		gcc
+ CFLAGS ?=	-O2 -pipe
+@@ -23,9 +23,8 @@
+ 	${CC} ${CFLAGS} ${PTHREADFLAGS} ${INCLUDEFLAGS} ${LINKFLAGS} -o ${PROG} $<
+ 
+ install: ${PROG}
+-	${INSTALL} -c -m 555 -o root -g bin ${PROG} ${BINDIR}
+-	test -d ${MAN1DIR} || ${INSTALL} -d -o root ${MAN1DIR}
+-	${INSTALL} -c -m 444 -o root -g bin ${MAN} ${MAN1DIR}
++	${INSTALL} ${PROG} ${DESTDIR}${BINDIR}
++	${INSTALL} ${MAN} ${DESTDIR}${MAN1DIR}
+ 
+ clean:
+ 	-@rm -f ${PROG} *~ core *.core
