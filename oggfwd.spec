@@ -1,6 +1,6 @@
 
 Summary:	Small utility to forward Ogg to server icecast
-Summary(pl.UTF-8):	Niewielkie narzędzie do przekazywania plików Ogg dla serwera iceacast
+Summary(pl.UTF-8):	Niewielkie narzędzie do przekazywania plików Ogg do serwera iceacast
 Name:		oggfwd
 Version:	0.2
 Release:	1
@@ -17,10 +17,12 @@ BuildRequires:	speex-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Small utility to forward Ogg to server icecast.
+A basic icecast client that is very simple but also very useful for
+video streaming.
 
 %description -l pl.UTF-8
-Niewielkie narzędzie przekazywania plików Ogg do serwera iceacast.
+Podstawowy klient icecast, który jest bardzo prosty ale także bardzo
+użyteczny do streamingu wideo.
 
 %prep
 %setup -q
