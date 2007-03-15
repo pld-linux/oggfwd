@@ -1,6 +1,5 @@
-
 Summary:	Small utility to forward Ogg to server icecast
-Summary(pl.UTF-8):	Niewielkie narzędzie do przekazywania plików Ogg do serwera iceacast
+Summary(pl.UTF-8):	Niewielkie narzędzie do przekazywania plików Ogg do serwera icecast
 Name:		oggfwd
 Version:	0.2
 Release:	1
@@ -46,4 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog README
 %attr(755,root,root) %{_bindir}/%{name}
-%{_mandir}/man1/*.gz
+%{_mandir}/man1/*.1*
